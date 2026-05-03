@@ -25,13 +25,18 @@ input::placeholder {color:#888}
 .qr h3 {color:#00b050}
 .qr p {color:#333}
 .qr img {border-radius:8px;background:white;padding:10px;border:1px solid #ddd}
+.pix-copia-cola {margin-top:15px;text-align:left}
+.pix-copia-cola label {font-size:14px;font-weight:bold;color:#333;display:block;margin-bottom:5px}
+.pix-codigo {background:#fff;border:1px solid #ccc;border-radius:8px;padding:10px;font-size:12px;word-break:break-all;color:#000;margin-bottom:10px}
+.btn-copiar {background:#00b050;border:none;padding:10px 20px;color:white;font-size:14px;border-radius:8px;cursor:pointer;width:100%}
+.btn-copiar:hover {background:#009640}
 </style>
 </head>
 <body>
 <div class="container">
 <div class="parceria">
 <p>Parceria Oficial</p>
-<img src="IMG-20260503-WA0280.jpg" alt="SLODY">
+<img src="slody.jpg" alt="SLODY">
 </div>
 <div class="social">
 <a href="https://www.instagram.com/slodybr?igsh=ZHJ2bnlhazFiY2Q=" target="_blank">
@@ -53,6 +58,12 @@ input::placeholder {color:#888}
 <h3>Pagamento via Pix</h3>
 <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=00020126440014br.gov.bcb.pix0122ktxgabriel13@gmail.com52040000530398654047.005802BR5925GABRIEL DOS SANTOS GONCAL6009SAO PAULO62070503***6304083F" alt="QR Code Pix">
 <p>1. Escaneie o QR Code<br>2. Pague R$ 7,00<br>3. Clique em "COMPRAR AGORA"</p>
+
+<div class="pix-copia-cola">
+<label>Pix Copia e Cola:</label>
+<div class="pix-codigo" id="codigoPix">00020126440014br.gov.bcb.pix0122ktxgabriel13@gmail.com52040000530398654047.005802BR5925GABRIEL DOS SANTOS GONCAL6009SAO PAULO62070503***6304083F</div>
+<button class="btn-copiar" onclick="copiarPix()">COPIAR CÓDIGO PIX</button>
+</div>
 </div>
 <button onclick="comprar()">COMPRAR AGORA</button>
 </div>
@@ -67,6 +78,15 @@ let idff=document.getElementById('idff').value;
 if(!nome||!cpf||!email||!telefone||!idff){alert('Preencha todos os campos.');return;}
 let msg=`Olá! Quero comprar o Passe Booyah R$ 7,00.%0A%0A*Dados:*%0ANome: ${nome}%0ACPF: ${cpf}%0AEmail: ${email}%0ATelefone: ${telefone}%0AID FF: ${idff}%0A%0AJá realizei o pagamento via Pix.`;
 window.open("https://wa.me/"+numero+"?text="+msg,'_blank');
+}
+
+function copiarPix(){
+let codigo = document.getElementById('codigoPix').innerText;
+navigator.clipboard.writeText(codigo).then(function() {
+alert('Código Pix copiado! É só colar no app do seu banco.');
+}, function() {
+alert('Não foi possível copiar. Selecione o código manualmente.');
+});
 }
 </script>
 </body>
