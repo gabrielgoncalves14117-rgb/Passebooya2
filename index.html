@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>PasseBooya</title>
+
+<style>
+body {
+    background: #0a0a0a;
+    color: white;
+    font-family: Arial;
+    text-align: center;
+}
+
+.container {
+    padding: 20px;
+}
+
+h1 {
+    color: #a020f0;
+}
+
+button {
+    background: #a020f0;
+    border: none;
+    padding: 15px;
+    color: white;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+input {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    width: 80%;
+}
+
+.qr {
+    margin-top: 20px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+    <h1>PASSEBOOYA</h1>
+    <h2>Compre seu Passe Booyah</h2>
+    <h3>R$ 7,00</h3>
+
+    <form>
+        <input type="text" placeholder="Nome completo" required>
+        <input type="text" placeholder="CPF" required>
+        <input type="email" placeholder="Email" required>
+        <input type="tel" placeholder="Telefone" required>
+    </form>
+
+    <div class="qr">
+        <h3>Pagamento via Pix</h3>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=SUA_CHAVE_PIX_AQUI">
+        <p>Escaneie o QR Code e pague</p>
+    </div>
+
+    <br>
+
+    <button onclick="comprar()">COMPRAR AGORA</button>
+
+</div>
+
+<script>
+function comprar() {
+    let numero = "77981047147"; // SEU WHATSAPP
+    let mensagem = "Olá, quero comprar o Passe Booyah. Meu ID é: ";
+    let url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensagem);
+
+    window.open(url, '_blank');
+}
+</script>
+
+</body>
+</html>
